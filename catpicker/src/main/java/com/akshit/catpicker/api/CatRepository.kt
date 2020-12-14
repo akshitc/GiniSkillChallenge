@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import com.akshit.catpicker.model.CatModel
 import kotlinx.coroutines.flow.Flow
 
-class CatRepository(private val catService: CatService) {
+internal class CatRepository(private val catService: CatService) {
 
     fun getCats(): Flow<PagingData<CatModel>> {
         return Pager(

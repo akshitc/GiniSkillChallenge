@@ -3,7 +3,7 @@ package com.akshit.catpicker.api
 import androidx.paging.PagingSource
 import com.akshit.catpicker.model.CatModel
 
-class CatPagingSource(private val catService: CatService) : PagingSource<Int, CatModel>() {
+internal class CatPagingSource(private val catService: CatService) : PagingSource<Int, CatModel>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CatModel> {
         return try {

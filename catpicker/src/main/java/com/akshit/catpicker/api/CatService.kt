@@ -11,7 +11,7 @@ import retrofit2.http.Query
 internal const val API_BASE_URL = "https://api.thecatapi.com/"
 internal const val API_KEY = "42aecdd4-b570-4090-9fa0-e4f31aa8a08e"
 
-interface CatService {
+internal interface CatService {
 
     @GET("v1/images/search")
     suspend fun getCats(

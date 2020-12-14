@@ -5,7 +5,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.akshit.catpicker.model.CatModel
 
-class CatAdapter(
+internal class CatAdapter(
     private val listener: CatSelectionListener,
     diffCallback: DiffUtil.ItemCallback<CatModel>
 ) : PagingDataAdapter<CatModel, CatViewHolder>(diffCallback) {

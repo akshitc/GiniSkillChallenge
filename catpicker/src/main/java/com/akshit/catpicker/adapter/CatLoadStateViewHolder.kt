@@ -11,7 +11,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import com.akshit.catpicker.R
 
-class CatLoadStateViewHolder(
+internal class CatLoadStateViewHolder(
     view: View,
     private val retry: () -> Unit
 ) : RecyclerView.ViewHolder(view) {

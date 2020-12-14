@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 
-class CatLoadStateAdapter(
+internal class CatLoadStateAdapter(
     private val retry: () -> Unit
 ) : LoadStateAdapter<CatLoadStateViewHolder>() {
 

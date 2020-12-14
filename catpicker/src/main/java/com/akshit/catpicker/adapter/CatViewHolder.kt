@@ -11,7 +11,7 @@ import com.akshit.catpicker.R
 import com.akshit.catpicker.model.CatModel
 import com.bumptech.glide.Glide
 
-class CatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+internal class CatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(item: CatModel?, listener: CatSelectionListener) {
         if (item != null) {

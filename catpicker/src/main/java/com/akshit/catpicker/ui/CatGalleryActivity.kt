@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
+internal class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
 
     private val viewModel: CatGalleryViewModel by viewModels { createViewModelFactory() }
 
