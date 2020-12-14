@@ -44,6 +44,9 @@ dependencies {
     implementation deps.paging
     implementation deps.androidx_viewmodel_ktx
     implementation deps.activity_ktx
+    implementation deps.cardview
+    implementation deps.glide.glide
+    annotationProcessor deps.glide.compiler
     testImplementation deps.unittest.junit
     androidTestImplementation deps.ext_junit
     androidTestImplementation deps.androidtest.espresso_core

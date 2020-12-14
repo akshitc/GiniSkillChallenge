@@ -3,11 +3,21 @@ package com.akshit.catpicker.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import com.akshit.catpicker.Injection
 import com.akshit.catpicker.R
+import com.akshit.catpicker.adapter.CatAdapter
+import com.akshit.catpicker.adapter.CatComparator
+import com.akshit.catpicker.adapter.CatSelectionListener
+import com.akshit.catpicker.model.CatModel
+import kotlinx.android.synthetic.main.activity_cat_gallery.*
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
-class CatGalleryActivity : AppCompatActivity() {
+class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
 
     private val viewModel: CatGalleryViewModel by viewModels { createViewModelFactory() }
 
@@ -18,5 +28,35 @@ class CatGalleryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cat_gallery)
+
+        setToolBar()
+        setViews()
+    }
+
+    private fun setToolBar() {
+        setSupportActionBar(findViewById(R.id.toolbar))
+    }
+
+    private fun setViews() {
+        val pagingAdapter = CatAdapter(this, CatComparator)
+        cat_grid.adapter = pagingAdapter
+
+        pagingAdapter.addLoadStateListener { loadState ->
+            progress_bar.isVisible = loadState.refresh is LoadState.Loading
+            retry_button.isVisible = loadState.refresh is LoadState.Error
+            retry_button.setOnClickListener {
+                pagingAdapter.retry()
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.getCats().collectLatest { pagingData ->
+                pagingAdapter.submitData(pagingData)
+            }
+        }
+    }
+
+    override fun onCatSelected(catModel: CatModel) {
+        TODO("Not yet implemented")
     }
 }
