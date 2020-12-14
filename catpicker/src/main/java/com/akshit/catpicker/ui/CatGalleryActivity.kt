@@ -1,7 +1,8 @@
-package com.akshit.catpicker
+package com.akshit.catpicker.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.akshit.catpicker.R
 
 class CatGalleryActivity : AppCompatActivity() {
 

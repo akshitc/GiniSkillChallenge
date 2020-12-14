@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CatGalleryActivity"
+    tools:context=".ui.CatGalleryActivity"
     tools:theme="@style/GiniTheme">
 
     <androidx.appcompat.widget.Toolbar
