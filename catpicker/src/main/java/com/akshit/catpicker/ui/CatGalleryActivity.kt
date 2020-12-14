@@ -11,6 +11,7 @@ import com.akshit.catpicker.Injection
 import com.akshit.catpicker.R
 import com.akshit.catpicker.adapter.CatAdapter
 import com.akshit.catpicker.adapter.CatComparator
+import com.akshit.catpicker.adapter.CatLoadStateAdapter
 import com.akshit.catpicker.adapter.CatSelectionListener
 import com.akshit.catpicker.model.CatModel
 import kotlinx.android.synthetic.main.activity_cat_gallery.*
@@ -39,7 +40,9 @@ class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
 
     private fun setViews() {
         val pagingAdapter = CatAdapter(this, CatComparator)
-        cat_grid.adapter = pagingAdapter
+        cat_grid.adapter = pagingAdapter.withLoadStateFooter(
+            CatLoadStateAdapter { pagingAdapter.retry() }
+        )
 
         pagingAdapter.addLoadStateListener { loadState ->
             progress_bar.isVisible = loadState.refresh is LoadState.Loading
