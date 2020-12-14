@@ -1,6 +1,7 @@
 package com.akshit.catpicker.ui
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -46,6 +47,14 @@ internal class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
             toolbar.setNavigationIcon(config.navigateIcon)
         }
         setSupportActionBar(findViewById(R.id.toolbar))
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setViews() {
