@@ -15,9 +15,12 @@ import com.akshit.catpicker.adapter.CatComparator
 import com.akshit.catpicker.adapter.CatLoadStateAdapter
 import com.akshit.catpicker.adapter.CatSelectionListener
 import com.akshit.catpicker.model.CatModel
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_cat_gallery.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
 
@@ -67,6 +70,19 @@ class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
     }
 
     override fun onCatSelected(catModel: CatModel) {
-        TODO("Not yet implemented")
+        val futureTargetBitmap = Glide
+            .with(this)
+            .asBitmap()
+            .load(catModel.url)
+            .submit(catModel.width, catModel.height)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val bitmap = futureTargetBitmap.get()
+            withContext(Dispatchers.Main) {
+                CatPicker.onSuccessListener?.onSuccess(bitmap)
+                onBackPressed()
+            }
+            futureTargetBitmap.cancel(false)
+        }
     }
 }
