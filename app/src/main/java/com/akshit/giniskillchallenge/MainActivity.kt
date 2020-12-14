@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), OnSuccessListener {
 
     private fun setListeners() {
         start_button.setOnClickListener {
-            CatPicker.start(this, CatPickerConfig(), this)
+            CatPicker.start(this, CatPickerConfig(navigateIcon = R.drawable.ic_cancel, title = "My Cat Picker", background = R.color.colorPrimary), this)
         }
     }
 
