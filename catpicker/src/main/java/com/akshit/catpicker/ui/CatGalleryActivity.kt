@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
+import com.akshit.catpicker.CatPicker
 import com.akshit.catpicker.Injection
 import com.akshit.catpicker.R
 import com.akshit.catpicker.adapter.CatAdapter
@@ -35,6 +36,12 @@ class CatGalleryActivity : AppCompatActivity(), CatSelectionListener {
     }
 
     private fun setToolBar() {
+        val config = CatPicker.config
+        if (config != null) {
+            toolbar.title = config.title
+            toolbar.setBackgroundResource(config.background)
+            toolbar.setNavigationIcon(config.navigateIcon)
+        }
         setSupportActionBar(findViewById(R.id.toolbar))
     }
 
