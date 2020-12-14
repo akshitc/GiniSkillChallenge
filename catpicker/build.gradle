@@ -16,6 +16,15 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -34,6 +43,7 @@ dependencies {
     implementation deps.retrofit2.converter_gson
     implementation deps.paging
     implementation deps.androidx_viewmodel_ktx
+    implementation deps.activity_ktx
     testImplementation deps.unittest.junit
     androidTestImplementation deps.ext_junit
     androidTestImplementation deps.androidtest.espresso_core
