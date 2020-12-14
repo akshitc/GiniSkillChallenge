@@ -30,6 +30,8 @@ dependencies {
     implementation deps.appcompat
     implementation deps.constraint_layout
     implementation deps.recyclerview
+    implementation deps.retrofit2.retrofit
+    implementation deps.retrofit2.converter_gson
     testImplementation deps.unittest.junit
     androidTestImplementation deps.ext_junit
     androidTestImplementation deps.androidtest.espresso_core
