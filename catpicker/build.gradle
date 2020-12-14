@@ -29,6 +29,7 @@ dependencies {
     implementation deps.core_ktx
     implementation deps.appcompat
     implementation deps.constraint_layout
+    implementation deps.recyclerview
     testImplementation deps.unittest.junit
     androidTestImplementation deps.ext_junit
     androidTestImplementation deps.androidtest.espresso_core
