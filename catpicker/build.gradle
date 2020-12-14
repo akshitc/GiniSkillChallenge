@@ -32,6 +32,7 @@ dependencies {
     implementation deps.recyclerview
     implementation deps.retrofit2.retrofit
     implementation deps.retrofit2.converter_gson
+    implementation deps.paging
     testImplementation deps.unittest.junit
     androidTestImplementation deps.ext_junit
     androidTestImplementation deps.androidtest.espresso_core
