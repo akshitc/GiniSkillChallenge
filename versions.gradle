@@ -16,6 +16,7 @@ versions.constraint_layout = '2.0.4'
 versions.recyclerview = '1.1.0'
 versions.retrofit = '2.9.0'
 versions.paging = '3.0.0-alpha10'
+versions.androidx_viewmodel_ktx = '2.2.0'
 
 // Kotlin
 def kotlin = [:]
@@ -29,6 +30,7 @@ deps.appcompat = "androidx.appcompat:appcompat:$versions.support"
 deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 deps.paging = "androidx.paging:paging-runtime:$versions.paging"
+deps.androidx_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidx_viewmodel_ktx"
 
 // Retrofit
 def retrofit = [:]
