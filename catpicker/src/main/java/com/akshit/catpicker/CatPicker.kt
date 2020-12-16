@@ -8,6 +8,7 @@ import com.akshit.catpicker.ui.CatGalleryActivity
 object CatPicker {
 
     var config: CatPickerConfig? = null
+    @JvmStatic
     var onSuccessListener: OnSuccessListener? = null
 
     @JvmOverloads
