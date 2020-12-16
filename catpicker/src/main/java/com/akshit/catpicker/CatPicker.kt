@@ -11,6 +11,12 @@ object CatPicker {
     @JvmStatic
     var onSuccessListener: OnSuccessListener? = null
 
+    /**
+     * Use this method to start the CatPicker SDK
+     * @param context Activity context
+     * @param config A CatPickerConfig instance with required title, toolbar color and back icon
+     * @param onSuccessListener Listener to get the selected image as bitmap
+     */
     @JvmOverloads
     @JvmStatic
     fun start(
@@ -24,6 +30,9 @@ object CatPicker {
     }
 }
 
+/**
+ * Interface to be used to get the result of the selected image as bitmap back from SDK
+ */
 fun interface OnSuccessListener {
     fun onSuccess(bitmap: Bitmap)
 }
