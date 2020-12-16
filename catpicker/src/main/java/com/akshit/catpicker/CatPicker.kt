@@ -10,6 +10,8 @@ object CatPicker {
     var config: CatPickerConfig? = null
     var onSuccessListener: OnSuccessListener? = null
 
+    @JvmOverloads
+    @JvmStatic
     fun start(
         context: Context,
         config: CatPickerConfig,
