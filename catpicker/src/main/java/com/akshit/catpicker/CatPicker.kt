@@ -21,6 +21,6 @@ object CatPicker {
     }
 }
 
-interface OnSuccessListener {
+fun interface OnSuccessListener {
     fun onSuccess(bitmap: Bitmap)
 }
