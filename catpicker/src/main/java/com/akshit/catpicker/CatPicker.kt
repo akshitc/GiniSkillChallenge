@@ -7,7 +7,7 @@ import com.akshit.catpicker.ui.CatGalleryActivity
 
 object CatPicker {
 
-    var config: CatPickerConfig? = null
+    internal var config: CatPickerConfig? = null
     @JvmStatic
     var onSuccessListener: OnSuccessListener? = null
 
@@ -15,7 +15,7 @@ object CatPicker {
     @JvmStatic
     fun start(
         context: Context,
-        config: CatPickerConfig,
+        config: CatPickerConfig = CatPickerConfig(),
         onSuccessListener: OnSuccessListener? = null
     ) {
         this.config = config
